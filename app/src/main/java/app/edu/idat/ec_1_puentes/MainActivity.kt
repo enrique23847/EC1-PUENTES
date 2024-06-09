@@ -46,8 +46,10 @@ fun PantallaPrincipal(){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "home") {
         composable("home"){HomeScreen(navController)}
+        composable("Test de Alcohol"){ TestsAlcohol()}
         composable("calcular Numeros"){ CalcularNumeros()}
         composable("Calcular Numero a Mes"){ CalcularMes()}
+        composable("suma del 22 al 99"){ CalcularSuma()}
 
     }
 }
@@ -67,12 +69,20 @@ fun HomeScreen(navController: NavController) {
                 style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 24.sp)
             )
             Spacer(modifier = Modifier.height(16.dp))
+            Button(onClick = { navController.navigate("Test de Alcohol") }, modifier = Modifier.fillMaxWidth()) {
+                Text(text = "Test de Alcohol")
+            }
+            Spacer(modifier = Modifier.height(16.dp))
             Button(onClick = { navController.navigate("calcular numeros") }, modifier = Modifier.fillMaxWidth()) {
                 Text(text = "Calcular Numeros")
             }
             Spacer(modifier = Modifier.height(16.dp))
             Button(onClick = { navController.navigate("calcular Numero a Mes") }, modifier = Modifier.fillMaxWidth()) {
                 Text(text = "Calcular Numeros a Mes")
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(onClick = { navController.navigate("suma del 22 al 99") }, modifier = Modifier.fillMaxWidth()) {
+                Text(text = "suma del 22 al 99")
             }
         }
     }
